@@ -1,3 +1,19 @@
+"""
+This script checks your public IP versus the IP saved in the log file (defined in config file).
+Copy server-scripts/configs/template_pulbic_ip_update.json to server-scripts/configs/public_ip_update.json.
+Update the config file (server-scripts/configs/public_ip_update.json) with needed information.
+
+The log filepath is where we check what the previous IP address was to compare against the current IP address
+
+Needed Information:
+    - subject: subject for the email to be sent
+    - to: gmail account email address to send email  
+    - from: recipients of the sent email to notify of the IP change
+    - secret: gmail app password/secret https://support.google.com/mail/answer/185833?hl=en
+    - log_filepath: filepath to save a log file and keep history of the IP address
+
+"""
+
 import os
 import json
 import smtplib
@@ -10,6 +26,7 @@ from email.mime.text import MIMEText
 def get_public_ip():
     response = requests.get('https://api.ipify.org').text
     return response
+
 
 def send_email(
     subject: str, 

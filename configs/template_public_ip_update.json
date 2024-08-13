@@ -1,0 +1,10 @@
+{
+    "subject": "Server IP Change",
+    "from": "user@gmail.com",
+    "to": [
+        "user@gmail.com",
+        "user2@something.com"
+    ],
+    "secret": "16_character_gmail_app_secret",
+    "log_filepath": "/path/where/cronjob/saves/log.log"
+}
